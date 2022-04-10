@@ -11,6 +11,8 @@ export const Channel = ({ file, isPlaying }: ChannelProps) => {
         src: file,
         format: 'mp3',
         loop: true,
+        html5: true,
+        buffer: true,
     })
 
     useEffect(() => {

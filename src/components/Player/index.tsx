@@ -8,7 +8,7 @@ import { useAppState } from '../../overmind'
 import Channel from './Channel'
 import PlayStopButton from './PlayStopButton'
 
-export const Player = () => {
+export const Player: React.FC = () => {
     const { activeLoops, isPlaying, loops, loopProgress } = useAppState()
     const channels = activeLoops.map((loopId) => loops[loopId])
 
