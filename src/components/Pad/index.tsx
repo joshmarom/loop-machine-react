@@ -16,7 +16,7 @@ export const Pad = () => {
     }
 
     return (
-        <SimpleGrid columns={3} spacing={4}>
+        <SimpleGrid columns={3} spacing={4} w="100%">
             {Object.entries(loops).map(([, { status, name }]) => {
                 return (
                     <LoopButton

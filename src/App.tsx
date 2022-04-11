@@ -1,9 +1,18 @@
-import { ChakraProvider, Box, Grid, theme, Container } from '@chakra-ui/react'
+import {
+    Box,
+    ChakraProvider,
+    Container,
+    Flex,
+    Grid,
+    Link,
+    theme,
+} from '@chakra-ui/react'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 import Pad from './components/Pad'
-import { useActions, useAppState } from './overmind'
+import { useActions } from './overmind'
 import Player from './components/Player'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { BsGithub } from 'react-icons/bs'
 
 export const App = () => {
     const { loadLoops } = useActions()
@@ -18,8 +27,23 @@ export const App = () => {
                 <Grid minH="100vh" templateRows="max-content 1fr" gap={4} p={3}>
                     <ColorModeSwitcher justifySelf="flex-end" />
                     <Container maxW="lg">
-                        <Player />
-                        <Pad />
+                        <Flex
+                            gap={4}
+                            direction="column"
+                            h="100%"
+                            alignItems="center"
+                        >
+                            <Box>
+                                <Player />
+                            </Box>
+                            <Pad />
+                            <Link
+                                href="https://github.com/joshmarom/loop-machine-react"
+                                mt="auto"
+                            >
+                                <BsGithub />
+                            </Link>
+                        </Flex>
                     </Container>
                 </Grid>
             </Box>
