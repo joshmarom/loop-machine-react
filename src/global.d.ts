@@ -13,12 +13,16 @@ declare global {
     interface State {
         loops: LoopsObj
         interval: number
-        intervalId: number | null
+        intervalId: Timeout | null
         isPlaying: boolean
         loopProgress: number
         loopsPreloaded: boolean
         queue: string[]
         activeLoops: string[]
+    }
+    interface Root {
+        render(children: React.ReactChild | Iterable<React.ReactNode>): void
+        unmount(): void
     }
 }
 

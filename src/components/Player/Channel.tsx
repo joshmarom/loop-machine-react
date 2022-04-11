@@ -8,8 +8,8 @@ interface ChannelProps {
 }
 
 export const Channel = ({ file, isPlaying }: ChannelProps) => {
-    const { interval } = useAppState()
     const [tick, setTick] = React.useState(0)
+    const { interval } = useAppState()
     const { play, stop } = useAudioPlayer({
         src: file,
         format: 'mp3',

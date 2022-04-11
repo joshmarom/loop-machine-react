@@ -1,5 +1,6 @@
 import { ColorModeScript } from '@chakra-ui/react'
 import { StrictMode } from 'react'
+// @ts-ignore: noImplicitAny
 import { createRoot } from 'react-dom/client'
 import { createOvermind } from 'overmind'
 import { Provider } from 'overmind-react'
@@ -7,11 +8,9 @@ import { config } from './overmind'
 import * as serviceWorker from './serviceWorker'
 import App from './App'
 
-const overmind = createOvermind(config, {
-    devtools: true,
-})
+const overmind = createOvermind(config)
 const rootElement = document.getElementById('root')
-const root = createRoot(rootElement)
+const root: Root = createRoot(rootElement)
 
 root.render(
     <StrictMode>
@@ -22,7 +21,4 @@ root.render(
     </StrictMode>
 )
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://cra.link/PWA
 serviceWorker.unregister()

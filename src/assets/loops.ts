@@ -1,4 +1,9 @@
-export const loops = [
+type LoopSrc = {
+    name: string
+    path: string
+}
+
+export const loops: LoopSrc[] = [
     {
         name: 'Bass',
         path: require('./audio/baseline.mp3'),

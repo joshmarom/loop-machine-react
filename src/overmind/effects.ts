@@ -1,7 +1,7 @@
 import loops from '../assets/loops'
 
 export const getLoops = () =>
-    loops.reduce((acc, loop) => {
+    loops.reduce((acc: LoopsObj, loop) => {
         acc[loop.name] = {
             ...loop,
             status: 'inactive',
@@ -9,8 +9,8 @@ export const getLoops = () =>
         return acc
     }, {})
 
-export const preloadLoops = (loops: Loop[]) => {
-    const promises = Object.keys(loops).map((loopId) => {
+export const preloadLoops = (loops: LoopsObj) => {
+    const promises = Object.keys(loops).map((loopId: string) => {
         const audio = new Audio()
         audio.src = loops[loopId].path
         return new Promise((resolve) => {
