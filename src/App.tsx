@@ -3,19 +3,14 @@ import { ColorModeSwitcher } from './ColorModeSwitcher'
 import Pad from './components/Pad'
 import { useActions, useAppState } from './overmind'
 import Player from './components/Player'
-import { useEffect } from 'react'
-import useAudioPreloader from './hooks/useAudioPreloader'
+import { useEffect, useState } from 'react'
 
 export const App = () => {
-    const { grabLoops } = useActions()
-    const { loops } = useAppState()
-    const isLoading = useAudioPreloader()
+    const { loadLoops } = useActions()
 
     useEffect(() => {
-        if (!Object.keys(loops).length) grabLoops()
-    }, [loops, grabLoops])
-
-    if (isLoading) return <p>Preloading ...</p>
+        loadLoops()
+    }, [])
 
     return (
         <ChakraProvider theme={theme}>

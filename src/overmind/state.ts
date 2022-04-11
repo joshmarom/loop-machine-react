@@ -4,6 +4,7 @@ export const state: State = {
     intervalId: null,
     isPlaying: false,
     loopProgress: 0,
+    loopsPreloaded: false,
     queue: [],
     activeLoops: [],
 }

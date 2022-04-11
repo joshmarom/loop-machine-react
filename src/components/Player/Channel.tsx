@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useAudioPlayer } from 'react-use-audio-player'
 
 interface ChannelProps {
@@ -20,7 +20,7 @@ export const Channel = ({ file, isPlaying }: ChannelProps) => {
         else stop()
     }, [isPlaying, play, stop])
 
-    return <></>
+    return <React.Fragment />
 }
 
 export default Channel

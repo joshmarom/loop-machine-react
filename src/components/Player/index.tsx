@@ -16,9 +16,9 @@ export const Player: React.FC = () => {
         <CircularProgress value={loopProgress} size="200px">
             <CircularProgressLabel as={VStack}>
                 <PlayStopButton />
-                {channels.map((loop: Loop) => (
-                    <AudioPlayerProvider key={loop.name}>
-                        <Channel file={loop.path} isPlaying={isPlaying} />
+                {channels.map(({ name, path }: Loop) => (
+                    <AudioPlayerProvider key={name}>
+                        <Channel file={path} isPlaying={isPlaying} />
                     </AudioPlayerProvider>
                 ))}
             </CircularProgressLabel>

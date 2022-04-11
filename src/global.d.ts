@@ -16,6 +16,7 @@ declare global {
         intervalId: number | null
         isPlaying: boolean
         loopProgress: number
+        loopsPreloaded: boolean
         queue: string[]
         activeLoops: string[]
     }
