@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAudioPlayer } from 'react-use-audio-player'
+import { useAppState } from '../../overmind'
 
 interface ChannelProps {
     file: string
@@ -7,20 +8,21 @@ interface ChannelProps {
 }
 
 export const Channel = ({ file, isPlaying }: ChannelProps) => {
+    const { interval } = useAppState()
+    const [tick, setTick] = React.useState(0)
     const { play, stop } = useAudioPlayer({
         src: file,
         format: 'mp3',
         html5: true,
     })
 
-    const [tick, setTick] = React.useState(0)
-
     useEffect(() => {
         if (isPlaying) {
             play()
             setTimeout(() => {
+                stop()
                 setTick(tick + 1)
-            }, 8000)
+            }, interval)
         } else {
             stop()
         }
