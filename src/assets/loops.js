@@ -1,49 +1,39 @@
-export const baseline = require('./audio/baseline.mp3')
-export const flat_role = require('./audio/flat_role.mp3')
-export const holdme = require('./audio/holdme.mp3')
-export const Kick_Clap = require('./audio/Kick_Clap.mp3')
-export const latint = require('./audio/latint.mp3')
-export const lovefunk = require('./audio/lovefunk.mp3')
-export const pickcut = require('./audio/pickcut.mp3')
-export const jumpy = require('./audio/jumpy.mp3')
-export const zulu = require('./audio/zulu.mp3')
-
 export const loops = [
     {
         name: 'Bass',
-        path: baseline,
+        path: require('./audio/baseline.mp3'),
     },
     {
         name: 'Flat',
-        path: flat_role,
+        path: require('./audio/flat_role.mp3'),
     },
     {
         name: 'Key',
-        path: holdme,
+        path: require('./audio/holdme.mp3'),
     },
     {
         name: 'Kick',
-        path: Kick_Clap,
+        path: require('./audio/kick.mp3'),
     },
     {
         name: 'Hat',
-        path: latint,
+        path: require('./audio/latint.mp3'),
     },
     {
         name: 'Funk',
-        path: lovefunk,
+        path: require('./audio/lovefunk.mp3'),
     },
     {
         name: 'Pick',
-        path: pickcut,
+        path: require('./audio/pickcut.mp3'),
     },
     {
         name: 'Jumpy',
-        path: jumpy,
+        path: require('./audio/jumpy.mp3'),
     },
     {
-        name: 'Zulu',
-        path: zulu,
+        name: 'Tune',
+        path: require('./audio/tune.mp3'),
     },
 ]
 

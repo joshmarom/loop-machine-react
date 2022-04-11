@@ -49,7 +49,12 @@ export const _setLoopInterval = ({ state, actions }) => {
         const newLoop = 100 === state.loopProgress + 10
         const newProgress = newLoop ? 0 : state.loopProgress + 10
         actions._updateLoopProgress(newProgress)
-        if (!state.loopProgress) actions.activateQueuedLoops()
+        if (!state.loopProgress) {
+            state.isPlaying = false
+            actions.activateQueuedLoops()
+
+            state.isPlaying = true
+        }
     }, state.interval / 10)
 }
 
