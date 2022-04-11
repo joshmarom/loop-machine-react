@@ -2,9 +2,9 @@ import { Context } from './index'
 
 export const loadLoops = async ({ state, effects }: Context) => {
     if (!Object.keys(state.loops).length) {
-        state.loops = effects.getLoops()
-    }
-    if (!state.loopsPreloaded) {
+        const loops = effects.getLoops()
+        state.loops = loops
+
         await effects.preloadLoops(state.loops)
         state.loopsPreloaded = true
     }

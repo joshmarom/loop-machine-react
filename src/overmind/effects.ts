@@ -10,9 +10,9 @@ export const getLoops = () =>
     }, {})
 
 export const preloadLoops = (loops: LoopsObj) => {
-    const promises = Object.keys(loops).map((loopId: string) => {
+    const promises = Object.values(loops).map(({ path }: Loop) => {
         const audio = new Audio()
-        audio.src = loops[loopId].path
+        audio.src = path
         return new Promise((resolve) => {
             audio.addEventListener('canplaythrough', resolve)
         })
