@@ -9,16 +9,19 @@ import Channel from './Channel'
 import PlayStopButton from './PlayStopButton'
 
 export const Player: React.FC = () => {
-    const { activeLoops, isPlaying, loops, loopProgress } = useAppState()
-    const channels = activeLoops.map((loopId) => loops[loopId])
+    const { isPlaying, loops, loopProgress } = useAppState()
+    const channels = Object.keys(loops).map((loopId) => loops[loopId])
 
     return (
         <CircularProgress value={loopProgress} size="200px">
             <CircularProgressLabel as={VStack}>
                 <PlayStopButton />
-                {channels.map(({ name, path }: Loop) => (
+                {channels.map(({ name, path, status }: Loop) => (
                     <AudioPlayerProvider key={name}>
-                        <Channel file={path} isPlaying={isPlaying} />
+                        <Channel
+                            file={path}
+                            isPlaying={isPlaying && 'active' === status}
+                        />
                     </AudioPlayerProvider>
                 ))}
             </CircularProgressLabel>
